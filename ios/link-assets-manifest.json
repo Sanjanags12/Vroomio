@@ -1,0 +1,13 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/ArizoniaRegular.ttf",
+      "sha1": "72839c8580f2b8f67a050f32312479a6e92f37e3"
+    },
+    {
+      "path": "src/assets/fonts/ShadowLightRegular.ttf",
+      "sha1": "e512d65b44398e83907215402d477643751c1dfa"
+    }
+  ]
+}
