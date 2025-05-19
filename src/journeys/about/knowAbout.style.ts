@@ -5,7 +5,7 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#ffffff',
-    marginTop: 20,
+    marginTop: 10,
   },
 
   scrollContainer: {
@@ -19,9 +19,9 @@ export default StyleSheet.create({
     color: '#191970',
   },
   subtitle: {
-    fontSize: 25,
+    fontSize: 28,
     textAlign: 'center',
-    marginBottom: 30,
+    marginBottom: 20,
     color: '#555',
     fontStyle: 'italic',
   },
@@ -63,10 +63,10 @@ export default StyleSheet.create({
     textAlign: 'justify',
   },
   footer: {
-    marginTop:20,
-    fontSize: 25,
+    marginTop:10,
+    fontSize: 33,
     textAlign: 'center',
-    marginBottom: 30,
+    marginBottom: 20,
     color: '#555',
     fontFamily:'ArizoniaRegular'
   },

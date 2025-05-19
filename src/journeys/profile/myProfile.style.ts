@@ -44,4 +44,11 @@ export default StyleSheet.create({
     color: '#666',
     marginTop: 5,
   },
+   input: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    padding: 12,
+    marginBottom: 12,
+    borderRadius: 8,
+  },
 });

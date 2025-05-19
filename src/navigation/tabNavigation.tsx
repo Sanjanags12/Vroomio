@@ -10,9 +10,9 @@ import ProfileScreen from '../journeys/profile/myProfile';
 import UserIcon from '../components/svgs/userIcon';
 import MyBookingScreen from '../journeys/mybooking/myBookings';
 
-import Screens from '../navigation/rootNavigation';
 import KnowAbout from '../journeys/about/knowAbout';
 import SettingNavigation from './settingNavigation';
+import RootNavigation from './rootNavigation';
 
 const home = 'Home';
 const myBookings = 'My Bookings';
@@ -24,7 +24,7 @@ const Tab = createBottomTabNavigator();
 function TabNavigation(): React.JSX.Element {
   return (
     <Tab.Navigator screenOptions={{ headerShown: false }}>
-      <Tab.Screen name={home} component={Screens} options={{
+      <Tab.Screen name={home} component={RootNavigation} options={{
           tabBarIcon: ({focused}) => (
             <HomeIcon
               width={2}

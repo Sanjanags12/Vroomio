@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, SafeAreaView, TouchableOpacity, ScrollView, Alert } from 'react-native';
+import { View, Text, SafeAreaView, TouchableOpacity, ScrollView, Alert, TextInput } from 'react-native';
 
 import styles from './myProfile.style';
 
@@ -16,7 +16,13 @@ const ProfileScreen =   ({ navigation }: { navigation: { navigate: (screen: stri
         <View style={styles.section}>
           <Text style={styles.label}>Name</Text>
           <Text style={styles.value}>Jasmin Park</Text>
-
+            
+             {/* <TextInput
+                    style={styles.input}
+                    placeholder="Mobile Number"
+                    keyboardType="phone-pad"
+                    
+                  /> */}
           <Text style={styles.label}>Email</Text>
           <Text style={styles.value}>park.jasmin@example.com</Text>
 
