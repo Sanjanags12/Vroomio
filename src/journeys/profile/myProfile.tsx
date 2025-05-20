@@ -1,36 +1,133 @@
-import React from 'react';
-import { View, Text, SafeAreaView, TouchableOpacity, ScrollView, Alert, TextInput } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, SafeAreaView, TouchableOpacity, ScrollView, TextInput, Keyboard } from 'react-native';
 
 import styles from './myProfile.style';
+import EditIcon from '../../components/svgs/editIcon';
 
-const ProfileScreen =   ({ navigation }: { navigation: { navigate: (screen: string, params?: any) => void } })  => {
+const ProfileScreen = ({ navigation }: { navigation: { navigate: (screen: string, params?: any) => void } }) => {
+  const [isEditingName, setIsEditingName] =useState(false);
+  const [isEditingEmail, setIsEditingEmail] = useState(false);
+  const [isEditingPhone, setIsEditingPhone] = useState(false);
+  const [email, setEmail] = useState('park.jasmin@example.com');
+  const [phone, setPhone] = useState('+91 98765 43210');
+  const [name , setName] = useState ('Jimin Park')
+ 
   const handleMyBooking = () => {
-      navigation.navigate('My Bookings');
-    };
-  
+    navigation.navigate('My Bookings');
+  };
+
+  const handleEditName =() =>{
+     setIsEditingName(true);
+  };
+  const handleEditEmail = () => {
+    setIsEditingEmail(true);
+  };
+
+  const handleEditPhone = () => {
+    setIsEditingPhone(true);
+  };
+
+   const handleNameSubmit = () => {
+    setIsEditingName(false);
+    Keyboard.dismiss();
+   
+  };
+  const handleEmailSubmit = () => {
+    setIsEditingEmail(false);
+    Keyboard.dismiss();
+   
+  };
+
+  const handlePhoneSubmit = () => {
+    setIsEditingPhone(false);
+    Keyboard.dismiss();
+   
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <Text style={styles.header}>My Profile</Text>
+        
 
+        <View style={styles.NameHeader}>
+
+         <Text style={styles.label}>Hello There!!</Text>
+          <Text style={styles.name}>{name}</Text>
+
+        </View>
         <View style={styles.section}>
-          <Text style={styles.label}>Name</Text>
-          <Text style={styles.value}>Jasmin Park</Text>
-            
-             {/* <TextInput
-                    style={styles.input}
-                    placeholder="Mobile Number"
-                    keyboardType="phone-pad"
-                    
-                  /> */}
-          <Text style={styles.label}>Email</Text>
-          <Text style={styles.value}>park.jasmin@example.com</Text>
+        { /* Name Box */}
+               <View style={styles.box}>
+            <View style={styles.insideBox}>
+              <Text style={styles.label}>Name</Text>
+              {isEditingEmail ? (
+                <TextInput
+                  style={styles.input}
+                  value={name}
+                  onChangeText={setName}
+                  onSubmitEditing={handleNameSubmit}
+                  onBlur={handleNameSubmit}
+                  keyboardType= 'name-phone-pad'
+                  autoFocus
+                />
+              ) : (
+                <Text style={styles.value}>{name}</Text>
+              )}
+            </View>
+            <TouchableOpacity onPress={handleEditName}>
+              <EditIcon />
+            </TouchableOpacity>
+          </View>
 
-          <Text style={styles.label}>Phone Number</Text>
-          <Text style={styles.value}>+91 98765 43210</Text>
+          {/* Email Box */}
+          <View style={styles.box}>
+            <View style={styles.insideBox}>
+              <Text style={styles.label}>Email</Text>
+              {isEditingEmail ? (
+                <TextInput
+                  style={styles.input}
+                  value={email}
+                  onChangeText={setEmail}
+                  onSubmitEditing={handleEmailSubmit}
+                  onBlur={handleEmailSubmit}
+                  keyboardType="email-address"
+                  autoFocus
+                />
+              ) : (
+                <Text style={styles.value}>{email}</Text>
+              )}
+            </View>
+            <TouchableOpacity onPress={handleEditEmail}>
+              <EditIcon />
+            </TouchableOpacity>
+          </View>
+
+          {/* Phone Box */}
+          <View style={styles.box}>
+            <View style={styles.insideBox}>
+              <Text style={styles.label}>Phone Number</Text>
+              {isEditingPhone ? (
+                <TextInput
+                  style={styles.input}
+                  value={phone}
+                  onChangeText={setPhone}
+                  onSubmitEditing={handlePhoneSubmit}
+                  onBlur={handlePhoneSubmit}
+                  keyboardType="phone-pad"
+                  autoFocus
+                />
+              ) : (
+                <Text style={styles.value}>{phone}</Text>
+              )}
+            </View>
+            <TouchableOpacity onPress={handleEditPhone}>
+              <EditIcon />
+            </TouchableOpacity>
+          </View>
         </View>
 
-        <TouchableOpacity style={styles.card} >
+        {/* Cards */}
+        <TouchableOpacity style={styles.card}>
           <Text style={styles.cardTitle}>Payment Information</Text>
           <Text style={styles.cardSubtitle}>View saved cards and payment methods</Text>
         </TouchableOpacity>
