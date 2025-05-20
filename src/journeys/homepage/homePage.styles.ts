@@ -4,16 +4,19 @@ import {colors} from '../../common/constants/colors';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
     justifyContent: 'center',
-    backgroundColor: colors.background12,
+   // backgroundColor: colors.background12,
+     backgroundColor: '#fff',
+  },
+   scrollContainer: {
+    padding: 20,
   },
   title: {
     fontSize: 36,
-    fontWeight: 'bold',
     textAlign: 'center',
     marginBottom: 8,
     color: '#191970',
+    fontFamily:'DancingScript'
   },
   subtitle: {
     fontSize: 20,
@@ -23,7 +26,7 @@ export default StyleSheet.create({
     fontStyle: 'italic',
   },
   inputBox: {
-    backgroundColor: '#fff',
+   backgroundColor: colors.background12,
     flexDirection: 'row',
     width: '100%',
     paddingVertical: 12,
@@ -36,7 +39,7 @@ export default StyleSheet.create({
     shadowRadius: 3,
   },
   calenderBox: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.background12,
     flexDirection: 'row',
     width: '100%',
     paddingVertical: 12,

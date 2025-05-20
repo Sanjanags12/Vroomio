@@ -15,6 +15,7 @@ export default StyleSheet.create({
     color: '#000',
     marginBottom: 4,
     marginTop: 80,
+    marginLeft: 20
   },
 
   subtitle: {
@@ -78,7 +79,8 @@ export default StyleSheet.create({
   heading: {
     alignItems: 'flex-start',
     justifyContent: 'space-evenly',
-    marginLeft: 20
+    borderBottomWidth: 1,
+    borderBottomColor: '#e5e5e5',
   },
 
   imageIcon: {

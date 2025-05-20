@@ -9,8 +9,6 @@ import SettingsIcon from '../components/svgs/settingsIcon';
 import ProfileScreen from '../journeys/profile/myProfile';
 import UserIcon from '../components/svgs/userIcon';
 import MyBookingScreen from '../journeys/mybooking/myBookings';
-
-import KnowAbout from '../journeys/about/knowAbout';
 import SettingNavigation from './settingNavigation';
 import RootNavigation from './rootNavigation';
 

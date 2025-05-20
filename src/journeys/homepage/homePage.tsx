@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Platform,
   Image,
+  ScrollView,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import DateTimePicker from '@react-native-community/datetimepicker';
@@ -56,12 +57,12 @@ const HomeScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
+        
       <View style={{marginBottom: 40}}>
         <Text style={styles.title}>Vroomio</Text>
         <Text style={styles.subtitle}>Plan. Track. Ride.</Text>
-        <Image
-          style={{backgroundColor: 'red', height: 180, width: 380, padding: 20}}
-          source={require('../../common/images/BusWallpaper.jpg')}></Image>
+        
       </View>
       <View style={styles.inputBox}>
         <Bus width={10} height={10} style={styles.Icon} />
@@ -113,6 +114,13 @@ const HomeScreen = () => {
         onPress={handleSearch}
         disabled={isButtonDisabled}
       />
+
+    
+          
+      </ScrollView>
+        <Image
+          style={{backgroundColor: 'red', height: 180, width: 420, padding: 20}}
+          source={require('../../common/images/BusWallpaper.jpg')}></Image>
     </SafeAreaView>
   );
 };
