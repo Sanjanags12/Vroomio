@@ -38,10 +38,11 @@ const KnowAbout = ({
         </View>
  
    <Text style={styles.footer}>Travel Smart. Travel Vroomio.</Text>
-                <Image
-                  style={{backgroundColor: 'red', height: 180, width: 380, padding: 20}}
-                  source={require('../../common/images/BusWallpaper.jpg')}></Image>
+                
       </ScrollView>
+      <Image
+                  style={{backgroundColor: 'red', height: 180, width: 420, padding: 20}}
+                  source={require('../../common/images/BusWallpaper.jpg')}></Image>
     </SafeAreaView>
   );
 };

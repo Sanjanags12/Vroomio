@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, Text, View, ScrollView, TouchableOpacity } from 'react-native';
+import { SafeAreaView, Text, View, ScrollView, TouchableOpacity, Image } from 'react-native';
 import styles from './myBooking.styles';
 import { useBooking } from '../../common/contexts/bookingContext';
 
@@ -9,7 +9,7 @@ const MyBookingScreen = ({ navigation }: { navigation: { navigate: (screen: stri
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.heading}>
-        <Text style={styles.title}>Past Bookings</Text>
+        <Text style={styles.title}>My Past Bookings</Text>
       </View>
 
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
@@ -34,6 +34,9 @@ const MyBookingScreen = ({ navigation }: { navigation: { navigate: (screen: stri
           </TouchableOpacity>
         ))}
       </ScrollView>
+      <Image
+              style={{backgroundColor: 'red', height: 180, width: 420, padding: 20}}
+              source={require('../../common/images/BusWallpaper.jpg')}></Image>
     </SafeAreaView>
   );
 };

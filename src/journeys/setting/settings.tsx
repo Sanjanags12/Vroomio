@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, SafeAreaView, TouchableOpacity, ScrollView, Alert } from 'react-native';
+import { View, Text, SafeAreaView, TouchableOpacity, ScrollView, Alert, Image } from 'react-native';
 import styles from './settings.style';
 
 const SettingScreen = ({ navigation }: { navigation: { navigate: (screen: string, params?: any) => void } }) => {
@@ -46,6 +46,9 @@ const SettingScreen = ({ navigation }: { navigation: { navigate: (screen: string
           <Text style={[styles.itemText, { color: 'red' }]}>Delete Account</Text>
         </TouchableOpacity>
       </ScrollView>
+      <Image
+                        style={{backgroundColor: 'red', height: 180, width: 420, padding: 20}}
+                        source={require('../../common/images/BusWallpaper.jpg')}></Image>
     </SafeAreaView>
   );
 };

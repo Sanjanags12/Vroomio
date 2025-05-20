@@ -9,7 +9,7 @@ export default StyleSheet.create({
     padding: 20,
   },
   header: {
-    fontSize: 26,
+    fontSize: 35,
     fontWeight: 'bold',
     marginBottom: 30,
     color: '#000',
@@ -20,7 +20,7 @@ export default StyleSheet.create({
     borderBottomColor: '#e5e5e5',
   },
   itemText: {
-    fontSize: 16,
+    fontSize: 18,
     color: '#333',
   },
 });

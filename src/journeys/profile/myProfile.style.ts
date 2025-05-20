@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
   container: {
@@ -14,12 +14,12 @@ export default StyleSheet.create({
     marginBottom: 30,
     color: '#000',
   },
-  NameHeader:{
+  NameHeader: {
     fontSize: 26,
     fontWeight: 'bold',
     marginBottom: 40,
     color: '#000',
-    fontFamily: 'ShadowlightRegular'
+    fontFamily: 'ShadowlightRegular',
   },
   section: {
     marginBottom: 20,
@@ -35,7 +35,7 @@ export default StyleSheet.create({
     fontWeight: '500',
   },
   name: {
-  fontSize: 30,
+    fontSize: 30,
     color: '#000',
     fontWeight: '500',
   },
@@ -56,34 +56,34 @@ export default StyleSheet.create({
     color: '#666',
     marginTop: 5,
   },
-   input: {
-  borderWidth: 1,
-  borderColor: '#ccc',
-  borderRadius: 6,
-  fontSize: 16,
-  color: '#000',
-  minWidth: 200,
-},
+  input: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 6,
+    fontSize: 16,
+    color: '#000',
+    minWidth: 200,
+  },
 
- box: {
-  backgroundColor: '#fff',
-  flexDirection: 'row',
-  alignItems: 'center',
-  justifyContent: 'space-between', 
-  width: '100%',
-  paddingHorizontal: 15,
-  paddingVertical: 10,
-  marginBottom: 20,
-  borderRadius: 8,
-  elevation: 3,
-  shadowColor: '#000000',
-  shadowOffset: { width: 0, height: 2 },
-  shadowOpacity: 0.2,
-  shadowRadius: 3,
-},
+  box: {
+    backgroundColor: '#fff',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: '100%',
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+    marginBottom: 20,
+    borderRadius: 8,
+    elevation: 3,
+    shadowColor: '#000000',
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+  },
 
-insideBox: {
-  flex: 1,
-  flexDirection: 'column',
-},
+  insideBox: {
+    flex: 1,
+    flexDirection: 'column',
+  },
 });
