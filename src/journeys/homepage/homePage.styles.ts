@@ -16,7 +16,7 @@ export default StyleSheet.create({
     textAlign: 'center',
     marginBottom: 8,
     color: '#191970',
-    fontFamily:'DancingScript'
+    fontFamily: 'DancingScript'
   },
   subtitle: {
     fontSize: 20,
