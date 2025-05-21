@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useTransition} from 'react';
 import {
   View,
   Text,
@@ -9,7 +9,7 @@ import {
   Image,
   ScrollView,
 } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useTheme} from '@react-navigation/native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import styles from './homePage.styles';
 import Arrow from '../../components/svgs/arrowIcon';
@@ -17,8 +17,8 @@ import Bus from '../../components/svgs/busIcon';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../navigation/types';
 import CalenderIcon from '../../components/svgs/calenderIcon';
-import {Endpoints} from '../../common/constants/endpoints.constants';
 import ReusableButton from '../../components/button/reButton';
+import { useTranslation } from 'react-i18next';
 
 type HomeScreenNavigationProp = NativeStackNavigationProp<
   RootStackParamList,
@@ -31,9 +31,8 @@ const HomeScreen = () => {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
   const [showDatePicker, setShowDatePicker] = useState(false);
   const isButtonDisabled = !fromLocation || !toLocation || !selectedDate;
-
   const navigation = useNavigation<HomeScreenNavigationProp>();
-
+  const { t } = useTranslation();
   const handleSearch = () => {
     if (fromLocation && toLocation && selectedDate) {
       navigation.navigate('BusDetails', {
@@ -68,7 +67,7 @@ const HomeScreen = () => {
         <Bus width={10} height={10} style={styles.Icon} />
         <TextInput
           style={styles.inputText}
-          placeholder="From (e.g. Bangalore)"
+          placeholder={t('from')}
           value={fromLocation}
           onChangeText={setFromLocation}
         />
@@ -82,7 +81,7 @@ const HomeScreen = () => {
         <Bus width={10} height={10} style={styles.Icon} />
         <TextInput
           style={styles.inputText}
-          placeholder="To (e.g. Honnavar)"
+          placeholder={t('to')}
           value={toLocation}
           onChangeText={setToLocation}
         />
@@ -94,7 +93,7 @@ const HomeScreen = () => {
         <CalenderIcon width={10} height={10} style={styles.Icon} />
         <TextInput
           style={styles.inputText}
-          placeholder="Select The Date"
+          placeholder={t('select_the_date')}
           value={selectedDate ? selectedDate.toDateString() : ''}
           editable={false}
         />
@@ -110,7 +109,7 @@ const HomeScreen = () => {
       )}
 
       <ReusableButton
-        title={'Search'}
+        title={t('search')}
         onPress={handleSearch}
         disabled={isButtonDisabled}
       />

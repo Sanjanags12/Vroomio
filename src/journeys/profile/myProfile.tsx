@@ -12,6 +12,7 @@ import {
 
 import styles from './myProfile.style';
 import EditIcon from '../../components/svgs/editIcon';
+import { useTranslation } from 'react-i18next';
 
 const ProfileScreen = ({
   navigation,
@@ -24,7 +25,8 @@ const ProfileScreen = ({
   const [email, setEmail] = useState('park.jasmin@example.com');
   const [phone, setPhone] = useState('+91 98765 43210');
   const [name, setName] = useState('Jimin Park');
-
+  
+  const { t } = useTranslation();
   const handleMyBooking = () => {
     navigation.navigate('My Bookings');
   };
@@ -134,16 +136,16 @@ const ProfileScreen = ({
 
         {/* Cards */}
         <TouchableOpacity style={styles.card}>
-          <Text style={styles.cardTitle}>Payment Information</Text>
+          <Text style={styles.cardTitle}>{t('payment_info')}</Text>
           <Text style={styles.cardSubtitle}>
-            View saved cards and payment methods
+            {t('saved_card_info')}
           </Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.card} onPress={handleMyBooking}>
-          <Text style={styles.cardTitle}>My Bookings</Text>
+          <Text style={styles.cardTitle}>{t('my_bookings')}</Text>
           <Text style={styles.cardSubtitle}>
-            Check your upcoming and past trips
+            {t('check_bookings')}
           </Text>
         </TouchableOpacity>
       </ScrollView>

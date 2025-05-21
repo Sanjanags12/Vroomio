@@ -15,11 +15,11 @@ export default StyleSheet.create({
     fontSize: 46,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginBottom: 8,
+    marginBottom: 5,
     color: '#191970',
   },
   subtitle: {
-    fontSize: 28,
+    fontSize: 25,
     textAlign: 'center',
     marginBottom: 20,
     color: '#555',
@@ -28,7 +28,7 @@ export default StyleSheet.create({
   cardtitle: {
     fontSize: 25,
     textAlign: 'center',
-    marginBottom: 30,
+    marginBottom: 20,
     color: '#555',
     fontFamily:'ShadowlightRegular'
   },

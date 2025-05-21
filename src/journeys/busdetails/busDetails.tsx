@@ -15,6 +15,7 @@ import {Dropdown} from 'react-native-element-dropdown';
 import useFetchBusDetails from '../../services/fetchBusDetails';
 import {RootStackParamList} from '../../navigation/types';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { useTranslation } from 'react-i18next';
 
 type BusDetailsProps = NativeStackScreenProps<RootStackParamList, 'BusDetails'>;
 
@@ -23,7 +24,7 @@ const BusDetailsScreen =({ navigation, route }: BusDetailsProps): React.JSX.Elem
   const [filterValue, setFilterValue] = useState<string>('all');
   const {data, isLoading, isError, error} = useFetchBusDetails();
   const { from = '', to = '', date = '' } = route.params || {};
-
+  const { t }  = useTranslation();
 
 
   const sortOptions = [
@@ -95,9 +96,9 @@ const BusDetailsScreen =({ navigation, route }: BusDetailsProps): React.JSX.Elem
       </View>
 
       <View style={styles.heading}>
-        <Text style={styles.title}>Bus Details</Text>
+        <Text style={styles.title}>{t('bus_details')}</Text>
         <Text style={styles.subtitle}>
-          {from} → {to} ({buses.length} buses found)
+          {from} → {to} ({buses.length} {t('buses_found')})
         </Text>
       </View>
 

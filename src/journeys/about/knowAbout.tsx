@@ -1,24 +1,22 @@
 import React from 'react';
-import { View, Text, SafeAreaView, TouchableOpacity, ScrollView, Alert, Image } from 'react-native';
+import { View, Text, SafeAreaView,  ScrollView,  Image } from 'react-native';
 import styles from './knowAbout.style';
-import { RouteProp, useRoute } from '@react-navigation/native';
-import { RootStackParamList } from '../../navigation/types';
 
+import { useTranslation } from 'react-i18next';
 
-type KnowAboutProp = RouteProp<RootStackParamList, 'KnowAbout'>;
 
 const KnowAbout = ({
   navigation,
 }: {
   navigation: {navigate: (screen: string, params?: any) => void};
 }): React.JSX.Element =>  {
- 
+  
+    const { t } = useTranslation();
 
-  const route = useRoute<KnowAboutProp>();
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <View style={{marginBottom: 40}}>
+        <View style={{marginBottom: 20}}>
                 <Text style={styles.title}>Vroomio</Text>
                 <Text style={styles.subtitle}>Plan. Track. Ride.</Text>
                 
@@ -26,13 +24,13 @@ const KnowAbout = ({
 
 
         <View style={styles.card} >
-          <Text style={styles.subtitle}>Your all-in-one solution for intra-state bus journeys!</Text>
-          <Text style={styles.cardSubtitle}> Vroomio is a powerful and easy-to-use mobile app designed to simplify and improve your within-the-state bus travel experience. Whether you're commuting for work, heading to college, visiting family, or planning a short getaway, Vroomio helps you find and book the best bus options – all in one place.</Text>
+          <Text style={styles.subtitle}>{t('all_in_one_solution')}</Text>
+          <Text style={styles.cardSubtitle}>{t('vroomio_description')}</Text>
         </View>
 
         <View style = {styles.subcard}>
   <Text style ={styles.cardSubtitle}>
-    From daily travel to weekend getaways, Vroomio makes state-wide travel simple and stress-free.
+   {t('daily_to_weekend')}
    </Text>
 
         </View>

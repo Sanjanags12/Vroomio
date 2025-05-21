@@ -2,14 +2,16 @@ import React from 'react';
 import { SafeAreaView, Text, View, ScrollView, TouchableOpacity, Image } from 'react-native';
 import styles from './myBooking.styles';
 import { useBooking } from '../../common/contexts/bookingContext';
+import { useTranslation } from 'react-i18next';
 
 const MyBookingScreen = ({ navigation }: { navigation: { navigate: (screen: string, params?: any) => void } }) => {
   const { bookings } = useBooking(); 
-
+ 
+  const { t } = useTranslation();
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.heading}>
-        <Text style={styles.title}>My Past Bookings</Text>
+        <Text style={styles.title}> {t('my_bookings')}</Text>
       </View>
 
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
