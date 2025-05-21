@@ -99,4 +99,8 @@ To learn more about React Native, take a look at the following resources:
 =======
 # Vroomio
 Bus app using React Native
+Vroomio is Your all-in-one solution for intra-state bus journeys!
+Vroomio is a powerful and easy-to-use mobile app designed to simplify and improve your within-the-state bus travel experience. Whether you're commuting for work, heading to college, visiting family, or planning a short getaway, Vroomio helps you find and book the best bus options – all in one place.
+From daily travel to weekend getaways, Vroomio makes state-wide travel simple and stress-free.
+
 >>>>>>> 78bbb6a673b56846c0fc1a98ba364c44d036e248
