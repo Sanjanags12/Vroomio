@@ -16,6 +16,7 @@ import useFetchBusDetails from '../../services/fetchBusDetails';
 import {RootStackParamList} from '../../navigation/types';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { useTranslation } from 'react-i18next';
+import MemoizedDropdown from '../../components/memoizedComponent/memoizedDropdown';
 
 type BusDetailsProps = NativeStackScreenProps<RootStackParamList, 'BusDetails'>;
 
@@ -103,20 +104,26 @@ const BusDetailsScreen =({ navigation, route }: BusDetailsProps): React.JSX.Elem
       </View>
 
       <View style={styles.Filtercard}>
-        <View style={{flexDirection: 'row', flex: 1, alignItems: 'center'}}>
-          <SortIcon width={24} height={24} />
-          <Dropdown
-            style={[styles.dropdown, {flex: 1, marginHorizontal: 8}]}
-            data={sortOptions}
-            labelField="label"
-            valueField="value"
-            placeholder="Sort"
-            value={sortValue}
-            onChange={item => setSortValue(item.value)}
-          />
-        </View>
+        
 
-        <View style={{flexDirection: 'row', flex: 1, alignItems: 'center'}}>
+        <MemoizedDropdown
+        icon={<SortIcon width={24} height={24} />}
+        data={sortOptions}
+        value={sortValue}
+        onChange={item => setSortValue(item.value)}
+        placeholder="Sort"
+      />
+      
+      <MemoizedDropdown
+      icon={<FilterIcon width={24} height={24} />}
+      data={filterOptions}
+      value={filterValue}
+      onChange={item => setSortValue(item.value)}
+      placeholder="Filter"
+    />
+
+
+        {/* <View style={{flexDirection: 'row', flex: 1, alignItems: 'center'}}>
           <FilterIcon width={24} height={24} />
           <Dropdown
             style={[styles.dropdown, {flex: 1, marginHorizontal: 8}]}
@@ -127,7 +134,7 @@ const BusDetailsScreen =({ navigation, route }: BusDetailsProps): React.JSX.Elem
             value={filterValue}
             onChange={item => setFilterValue(item.value)}
           />
-        </View>
+        </View> */}
       </View>
 
       <View style={styles.container}>

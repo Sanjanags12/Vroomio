@@ -4,6 +4,8 @@ import {
   Text,
   TextInput,
   Alert,
+  TouchableOpacity,
+  ScrollView,
  
 } from 'react-native';
 import { Picker } from '@react-native-picker/picker'; 
@@ -12,6 +14,7 @@ import { RootStackParamList } from '../../navigation/types';
 import ReusableButton from '../../components/button/reButton';
 import styles from '../bookingform/bookingForm.style';
 import { useTranslation } from 'react-i18next';
+import BackArrow from '../../components/svgs/backArrow';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'BookingForm'>;
 
@@ -25,6 +28,11 @@ const BookingFormScreen: React.FC<Props> = ({ navigation, route }) => {
     drop: '',
     seat: '',
   });
+
+ const handleBackPress = () => {
+   
+    navigation.goBack();
+  };
 
   const handleInputChange = (name: string, value: string) => {
     setFormData(prev => ({ ...prev, [name]: value }));
@@ -63,6 +71,11 @@ const BookingFormScreen: React.FC<Props> = ({ navigation, route }) => {
 
   return (
     <SafeAreaView style={styles.container}>
+       <TouchableOpacity style={styles.backButton} onPress={handleBackPress}>
+        <BackArrow width={24} height={24} />
+      </TouchableOpacity>
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
+     
       <Text style={styles.title}>{t('form')}</Text>
 
       <TextInput
@@ -120,6 +133,7 @@ const BookingFormScreen: React.FC<Props> = ({ navigation, route }) => {
       <Text style={styles.priceText}>{t('price')}: ₹{price}</Text>
 
       <ReusableButton title={t('proceed')} onPress={handleSubmit} />
+      </ScrollView>
     </SafeAreaView>
   );
 };

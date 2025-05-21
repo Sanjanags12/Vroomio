@@ -3,9 +3,11 @@ import { colors } from '../../common/constants/colors';
 
 export default StyleSheet.create({
   container: {
-    padding: 20,
     backgroundColor: '#fff',
     flex: 1,
+  },
+   scrollContainer: {
+    padding: 20,
   },
   title: {
     fontSize: 24,
@@ -35,5 +37,16 @@ export default StyleSheet.create({
     fontSize: 16,
     marginVertical: 12,
     fontWeight: '500',
+  },
+  backButton: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    paddingBottom:30,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: Platform.OS === 'ios' ? 50 : 30,
+    alignSelf: 'flex-start',
+   
   },
 });

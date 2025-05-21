@@ -8,11 +8,11 @@ export default StyleSheet.create({
     
   },
   navbar:{
-    margin:20,
-    height:5,
+    height:35,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    paddingHorizontal:10
   },
 
   back1: {
@@ -28,7 +28,7 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     color: '#000',
     marginBottom: 4,
-    marginTop: 80,
+    marginTop: 40,
   },
 
   subtitle: {
@@ -139,10 +139,11 @@ export default StyleSheet.create({
   },
   Filtercard: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: 10,
+    justifyContent: 'space-evenly',
+    paddingHorizontal: 15,
     paddingVertical: 10,
     backgroundColor: '#f9f9f9',
+    margin:10
   },
   
   card: {
