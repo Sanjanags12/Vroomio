@@ -18,6 +18,7 @@ import GooglePayIcon from '../../components/svgs/googlePayIcon';
 import PaytmIcon from '../../components/svgs/paytmIcon';
 import CardIcon from '../../components/svgs/cardIcon';
 import ReusableButton from '../../components/button/reButton';
+import { useTranslation } from 'react-i18next';
 
 type PaymentMethodScreenProps = {
   navigation: { navigate: (screen: string, params?: any) => void };
@@ -41,7 +42,7 @@ const PaymentMethodScreen: React.FC<PaymentMethodScreenProps> = ({ navigation, r
   const [cardNumber, setCardNumber] = useState<string>('');
   const [expiryDate, setExpiryDate] = useState<string>('');
   const [cvv, setCvv] = useState<string>('');
-
+  const { t } = useTranslation();
   const handleContinue = () => {
     if (!selectedMethod) {
       Alert.alert('Missing Information', 'Please select a payment method');
@@ -70,8 +71,8 @@ const PaymentMethodScreen: React.FC<PaymentMethodScreenProps> = ({ navigation, r
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
       >
         <ScrollView contentContainerStyle={styles.scrollContainer}>
-          <Text style={styles.title}>Choose Payment Method</Text>
-          <Text style={styles.subtitle}>Select how you want to pay ₹{price}</Text>
+          <Text style={styles.title}>{t('choose_payment_method')}</Text>
+          <Text style={styles.subtitle}>{t('select_payment_instruction')} ₹{price}</Text>
 
           <RadioGroup onChange={setSelectedMethod}>
             <Radio 
@@ -128,7 +129,7 @@ const PaymentMethodScreen: React.FC<PaymentMethodScreenProps> = ({ navigation, r
             </View>
           )}
 
-          <ReusableButton title="Proceed to Pay" onPress={handleContinue} />
+          <ReusableButton title={t('pay')} onPress={handleContinue} />
         </ScrollView>
       </KeyboardAvoidingView>
     </SafeAreaView>

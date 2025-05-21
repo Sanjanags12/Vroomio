@@ -23,12 +23,12 @@ const SettingScreen = ({
   const [showLanguageOptions, setShowLanguageOptions] = useState(false);
 
   const handleLogout = () => {
-    Alert.alert(t('logout'), t('you_have_been_logged_out'));
+    Alert.alert(t('logout'), 'You have been logged out');
     navigation.navigate('Home');
   };
 
   const handleDeleteAccount = () => {
-    Alert.alert(t('delete_account'), t('account_deleted'));
+    Alert.alert(t('delete_account'), 'Account Deleted');
     navigation.navigate('Home');
   };
 

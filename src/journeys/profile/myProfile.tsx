@@ -22,9 +22,9 @@ const ProfileScreen = ({
   const [isEditingName, setIsEditingName] = useState(false);
   const [isEditingEmail, setIsEditingEmail] = useState(false);
   const [isEditingPhone, setIsEditingPhone] = useState(false);
-  const [email, setEmail] = useState('park.jasmin@example.com');
+  const [email, setEmail] = useState('san.art@example.com');
   const [phone, setPhone] = useState('+91 98765 43210');
-  const [name, setName] = useState('Jimin Park');
+  const [name, setName] = useState('Sanjana');
   
   const { t } = useTranslation();
   const handleMyBooking = () => {

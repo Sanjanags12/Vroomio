@@ -26,7 +26,6 @@ const LanguageProvider = ({ children }: LanguageProviderProps) => {
     await AsyncStorage.setItem('language', lang); 
   };
 
-  // Load saved language on app start
   useEffect(() => {
     const loadLanguage = async () => {
       const savedLanguage = await AsyncStorage.getItem('language');

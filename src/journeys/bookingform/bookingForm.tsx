@@ -11,12 +11,13 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../navigation/types';
 import ReusableButton from '../../components/button/reButton';
 import styles from '../bookingform/bookingForm.style';
+import { useTranslation } from 'react-i18next';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'BookingForm'>;
 
 const BookingFormScreen: React.FC<Props> = ({ navigation, route }) => {
   const { price, from, to, traveller, type, ratings, seats, timing } = route.params;
-
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     email: '',
     mobile: '',
@@ -38,12 +39,12 @@ const BookingFormScreen: React.FC<Props> = ({ navigation, route }) => {
     const { email, mobile, pickup, drop, seat } = formData;
 
     if (!email || !mobile || !pickup || !drop || !seat) {
-      Alert.alert('Missing Fields', 'Please fill out all fields.');
+      Alert.alert(t('missing'));
       return;
     }
 
     if (!validateEmail(email)) {
-      Alert.alert('Invalid Email', 'Please enter a valid email address.');
+      Alert.alert(t('invalid_email'));
       return;
     }
 
@@ -62,7 +63,7 @@ const BookingFormScreen: React.FC<Props> = ({ navigation, route }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>Booking Details Form</Text>
+      <Text style={styles.title}>{t('form')}</Text>
 
       <TextInput
         style={styles.input}
@@ -81,7 +82,7 @@ const BookingFormScreen: React.FC<Props> = ({ navigation, route }) => {
         value={formData.mobile}
       />
 
-      <Text style={styles.label}>Pickup Address</Text>
+      <Text style={styles.label}>{t('pickup_address')}</Text>
       <Picker
         selectedValue={formData.pickup}
         onValueChange={value => handleInputChange('pickup', value)}
@@ -95,7 +96,7 @@ const BookingFormScreen: React.FC<Props> = ({ navigation, route }) => {
         <Picker.Item label="jalahalli" value="jalahalli" />
       </Picker>
 
-      <Text style={styles.label}>Drop Address</Text>
+      <Text style={styles.label}>{t('drop_address')}</Text>
       <Picker
         selectedValue={formData.drop}
         onValueChange={value => handleInputChange('drop', value)}
@@ -116,9 +117,9 @@ const BookingFormScreen: React.FC<Props> = ({ navigation, route }) => {
         value={formData.seat}
       />
 
-      <Text style={styles.priceText}>Price: ₹{price}</Text>
+      <Text style={styles.priceText}>{t('price')}: ₹{price}</Text>
 
-      <ReusableButton title="Proceed to Payment Method" onPress={handleSubmit} />
+      <ReusableButton title={t('proceed')} onPress={handleSubmit} />
     </SafeAreaView>
   );
 };

@@ -10,6 +10,7 @@ import { RootStackParamList } from '../../navigation/types';
 import ReusableButton from '../../components/button/reButton';
 import BackArrow from '../../components/svgs/backArrow';
 import styles from '../busdescription/busDesc.style';
+import { useTranslation } from 'react-i18next';
 
 // Define the route prop type for BusDescription screen
 type BusDescriptionRouteProp = RouteProp<RootStackParamList, 'BusDescription'>;
@@ -21,7 +22,7 @@ const BusDescriptionScreen = ({
 }) => {
  
   const route = useRoute<BusDescriptionRouteProp>();
-  
+  const { t } = useTranslation();
   const { traveller, type, ratings, seats, timing, price, from, to } = route.params;
 
   const handleBook = () => {
@@ -49,7 +50,7 @@ const BusDescriptionScreen = ({
       </TouchableOpacity>
 
     
-      <Text style={styles.pageTitle}>Bus Details</Text>
+      <Text style={styles.pageTitle}>{t('bus_details')}</Text>
       <Text style={styles.route}>
         {from} ➝ {to}
       </Text>
@@ -74,7 +75,7 @@ const BusDescriptionScreen = ({
           <Text style={styles.ratingText}>⭐ {ratings}</Text>
         </View>
 
-        <ReusableButton title="Book Now" onPress={handleBook} />
+        <ReusableButton title={t('book_now')} onPress={handleBook} />
       </View>
     </SafeAreaView>
   );

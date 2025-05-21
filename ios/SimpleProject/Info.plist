@@ -51,6 +51,9 @@
 	<array>
 		<string>ArizoniaRegular.ttf</string>
 		<string>ShadowLightRegular.ttf</string>
+		<string>DancingFont.ttf</string>
+		<string>DancingScript.ttf</string>
+		<string>Pacifico.ttf</string>
 	</array>
 </dict>
 </plist>

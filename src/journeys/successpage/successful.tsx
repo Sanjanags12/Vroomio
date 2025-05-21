@@ -1,15 +1,12 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  SafeAreaView,
-} from 'react-native';
+import {View, Text, SafeAreaView} from 'react-native';
 
 import SuccessIcon from '../../components/svgs/successIcon';
 import styles from '../successpage/success.style';
 import ReusableButton from '../../components/button/reButton';
-import { RouteProp, useRoute } from '@react-navigation/native';
-import { RootStackParamList } from '../../navigation/types';
+import {RouteProp, useRoute} from '@react-navigation/native';
+import {RootStackParamList} from '../../navigation/types';
+import { useTranslation } from 'react-i18next';
 
 type BusDescriptionRouteProp = RouteProp<RootStackParamList, 'Success'>;
 const SuccessScreen = ({
@@ -17,11 +14,11 @@ const SuccessScreen = ({
 }: {
   navigation: {navigate: (screen: string, params?: any) => void};
 }): React.JSX.Element => {
-  
-    const route = useRoute<BusDescriptionRouteProp>();
+  const route = useRoute<BusDescriptionRouteProp>();
   const {traveller, type, ratings, seats, timing, price} = route.params;
+  const { t } = useTranslation();
   const handleClose = () => {
-    navigation.navigate('Home',{
+    navigation.navigate('Home', {
       traveller,
       type,
       ratings,
@@ -43,10 +40,10 @@ const SuccessScreen = ({
         </View>
 
         <ReusableButton
-        title={'Close'}
-        onPress={handleClose}
-        style={{width:250}}
-      />
+          title={t('close')}
+          onPress={handleClose}
+          style={{width: 250}}
+        />
       </View>
     </SafeAreaView>
   );

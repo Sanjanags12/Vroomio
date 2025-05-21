@@ -112,6 +112,7 @@ const HomeScreen = () => {
         title={t('search')}
         onPress={handleSearch}
         disabled={isButtonDisabled}
+        textStyle={{fontSize:20}}
       />
 
     

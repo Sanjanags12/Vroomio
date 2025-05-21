@@ -9,13 +9,13 @@ export default StyleSheet.create({
     padding: 20,
   },
   header: {
-    fontSize: 35,
+    fontSize: 32,
     fontWeight: 'bold',
-    marginBottom: 30,
+    paddingBottom:30,
     color: '#000',
   },
   item: {
-    paddingVertical: 15,
+    paddingVertical: 18,
     borderBottomWidth: 1,
     borderBottomColor: '#e5e5e5',
   },

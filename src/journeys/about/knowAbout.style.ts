@@ -11,12 +11,12 @@ export default StyleSheet.create({
   scrollContainer: {
     padding: 20,
   },
-  title: {
-    fontSize: 46,
-    fontWeight: 'bold',
+ title: {
+    fontSize: 45,
     textAlign: 'center',
-    marginBottom: 5,
     color: '#191970',
+    fontFamily:'Pacifico',
+    
   },
   subtitle: {
     fontSize: 25,

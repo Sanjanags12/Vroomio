@@ -2,16 +2,14 @@ import React from 'react';
 import {
   SafeAreaView,
   Text,
-  TouchableOpacity,
   View,
-  StyleSheet,
-  Alert,
 } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../navigation/types';
 import ReusableButton from '../../components/button/reButton';
 import { useBooking } from '../../common/contexts/bookingContext';
 import styles from '../payment/finalpayment.styles';
+import { useTranslation } from 'react-i18next';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Payment'>;
 
@@ -34,7 +32,7 @@ const PaymentScreen: React.FC<Props> = ({ route, navigation }) => {
   } = route.params;
 
   const { addBooking } = useBooking();
-
+  const { t } = useTranslation();
  
   const handleConfirmPayment = () => {
    
@@ -106,9 +104,9 @@ const PaymentScreen: React.FC<Props> = ({ route, navigation }) => {
       </View>
 
      
-      <ReusableButton title="Confirm Payment" onPress={handleConfirmPayment} />
+      <ReusableButton title={t('confirm')} onPress={handleConfirmPayment} />
 
-     <ReusableButton title="Go Back and Edit" onPress={handleBackPress} />
+     <ReusableButton title={t('go_back')} onPress={handleBackPress} />
     
     </SafeAreaView>
   );

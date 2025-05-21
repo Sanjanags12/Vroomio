@@ -9,14 +9,14 @@ export default StyleSheet.create({
      backgroundColor: '#fff',
   },
    scrollContainer: {
-    padding: 20,
+    padding: 25,
   },
   title: {
-    fontSize: 36,
+    fontSize: 45,
     textAlign: 'center',
-    marginBottom: 8,
     color: '#191970',
-    fontFamily: 'DancingScript'
+    fontFamily:'Pacifico',
+    
   },
   subtitle: {
     fontSize: 20,
@@ -29,9 +29,8 @@ export default StyleSheet.create({
    backgroundColor: colors.background12,
     flexDirection: 'row',
     width: '100%',
-    paddingVertical: 12,
     alignItems: 'center',
-    height: 60,
+    height: 70,
     elevation: 3,
     shadowColor: '#000000',
     shadowOffset: {width: 0, height: 2},
@@ -43,8 +42,9 @@ export default StyleSheet.create({
     flexDirection: 'row',
     width: '100%',
     paddingVertical: 12,
+    paddingHorizontal: 15,
     alignItems: 'center',
-    height: 60,
+    height: 70,
     elevation: 3,
     shadowColor: '#000000',
     shadowOffset: {width: 0, height: 2},
@@ -52,10 +52,12 @@ export default StyleSheet.create({
     shadowRadius: 3,
     marginTop: 20,
     marginBottom: 10,
+    gap:18
   },
   inputText: {
-    fontSize: 15,
+    fontSize: 14,
     color: '#333',
+    paddingHorizontal: 10
   },
   arrowContainer: {
     alignItems: 'center',
