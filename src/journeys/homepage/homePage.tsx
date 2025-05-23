@@ -78,7 +78,7 @@ const HomeScreen = () => {
       </View>
 
       <View style={styles.inputBox}>
-        <Bus width={10} height={10} style={styles.Icon} />
+        <Bus width={10} height={10} style={styles.Icon}/>
         <TextInput
           style={styles.inputText}
           placeholder={t('to')}

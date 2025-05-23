@@ -15,12 +15,19 @@ export default StyleSheet.create({
     color: '#000',
   },
   NameHeader: {
-    fontSize: 26,
-    fontWeight: 'bold',
-    marginBottom: 40,
-    color: '#000',
-    fontFamily: 'ShadowlightRegular',
+    marginBottom: 20,
+    alignItems: 'flex-end', 
+   
   },
+
+  headerContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: '100%',
+    paddingHorizontal: 10,
+  },
+
   section: {
     marginBottom: 20,
   },
@@ -85,5 +92,27 @@ export default StyleSheet.create({
   insideBox: {
     flex: 1,
     flexDirection: 'column',
+  },
+
+  profilePicContainer: {
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    overflow: 'hidden',
+    borderWidth: 1,
+    borderColor: '#ccc',
+  },
+
+  profilePic: {
+    width: '100%',
+    height: '100%',
+    borderRadius: 30,
+  },
+
+  profilePlaceholder: {
+    width: '100%',
+    height: '100%',
+    borderRadius: 30,
+    backgroundColor: '#ddd',
   },
 });

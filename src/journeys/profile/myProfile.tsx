@@ -8,11 +8,15 @@ import {
   TextInput,
   Keyboard,
   Image,
+  Alert,
 } from 'react-native';
 
 import styles from './myProfile.style';
 import EditIcon from '../../components/svgs/editIcon';
-import { useTranslation } from 'react-i18next';
+import {useTranslation} from 'react-i18next';
+import ReusableButton from '../../components/button/reButton';
+import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
+import {PermissionsAndroid, Platform} from 'react-native';
 
 const ProfileScreen = ({
   navigation,
@@ -25,8 +29,9 @@ const ProfileScreen = ({
   const [email, setEmail] = useState('san.art@example.com');
   const [phone, setPhone] = useState('+91 98765 43210');
   const [name, setName] = useState('Sanjana');
-  
-  const { t } = useTranslation();
+  const [profileImage, setProfileImage] = useState<string | null>(null);
+
+  const {t} = useTranslation();
   const handleMyBooking = () => {
     navigation.navigate('My Bookings');
   };
@@ -55,14 +60,82 @@ const ProfileScreen = ({
     setIsEditingPhone(false);
     Keyboard.dismiss();
   };
+  const requestGalleryPermission = async () => {
+    if (Platform.OS === 'android') {
+      const granted = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
+      );
+      return granted === PermissionsAndroid.RESULTS.GRANTED;
+    }
+    return true;
+  };
+
+  const handleAddPhoto = async () => {
+    Alert.alert(
+      'Profile Picture',
+      'Choose an option',
+      [
+        {
+          text: 'Camera',
+          onPress: async () => {
+            const cameraPermission = await PermissionsAndroid.request(
+              PermissionsAndroid.PERMISSIONS.CAMERA,
+            );
+            if (cameraPermission === PermissionsAndroid.RESULTS.GRANTED) {
+              launchCamera({mediaType: 'photo', quality: 0.7}, response => {
+                if (response.assets && response.assets.length > 0) {
+                  setProfileImage(response.assets[0].uri || null);
+                }
+              });
+            }
+          },
+        },
+        {
+          text: 'Gallery',
+          onPress: async () => {
+            const hasPermission = await requestGalleryPermission();
+            if (!hasPermission) return;
+
+            launchImageLibrary({mediaType: 'photo', quality: 0.7}, response => {
+              if (response.assets && response.assets.length > 0) {
+                setProfileImage(response.assets[0].uri || null);
+              }
+            });
+          },
+        },
+        {text: 'Cancel', style: 'cancel'},
+      ],
+      {cancelable: true},
+    );
+  };
 
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <View style={styles.NameHeader}>
-          <Text style={styles.label}>Hello There!!</Text>
-          <Text style={styles.name}>{name}</Text>
+          <View style={styles.headerContent}>
+            <View>
+              <Text style={styles.label}>Hello There!!</Text>
+              <Text style={styles.name}>{name}</Text>
+            </View>
+            <View style={styles.profilePicContainer}>
+              {profileImage ? (
+                <Image source={{uri: profileImage}} style={styles.profilePic} />
+              ) : (
+                <View style={styles.profilePlaceholder} />
+              )}
+            </View>
+          </View>
+
+          <ReusableButton
+            title={t('Add Profile pic')}
+            onPress={handleAddPhoto}
+            style={{width: 150, height: 50, marginTop:10 }}
+            textStyle={{fontSize: 15}}
+            
+          />
         </View>
+
         <View style={styles.section}>
           {/* Name Box */}
           <View style={styles.box}>
@@ -137,16 +210,12 @@ const ProfileScreen = ({
         {/* Cards */}
         <TouchableOpacity style={styles.card}>
           <Text style={styles.cardTitle}>{t('payment_info')}</Text>
-          <Text style={styles.cardSubtitle}>
-            {t('saved_card_info')}
-          </Text>
+          <Text style={styles.cardSubtitle}>{t('saved_card_info')}</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.card} onPress={handleMyBooking}>
           <Text style={styles.cardTitle}>{t('my_bookings')}</Text>
-          <Text style={styles.cardSubtitle}>
-            {t('check_bookings')}
-          </Text>
+          <Text style={styles.cardSubtitle}>{t('check_bookings')}</Text>
         </TouchableOpacity>
       </ScrollView>
       <Image

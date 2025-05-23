@@ -68,4 +68,5 @@ export default StyleSheet.create({
   Icon: {
     margin: 10,
   },
+  
 });
