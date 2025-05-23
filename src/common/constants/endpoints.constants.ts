@@ -6,4 +6,5 @@ const BASE_URL = config.BASE_URL;
 // all the api endpoints used in the app
 export const Endpoints = {
   BUS_LIST: `${BASE_URL}/buses`,
+  POST_BUS:`${BASE_URL}/bookings`,
 };

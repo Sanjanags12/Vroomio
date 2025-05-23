@@ -220,7 +220,7 @@
       "from": "Bengaluru",
       "to": "Goa"
     },
-     {
+    {
       "id": 21,
       "traveller": "VRL Travels",
       "type": "A/C Sleeper",
@@ -231,7 +231,7 @@
       "from": "Pune",
       "to": "Goa"
     },
-     {
+    {
       "id": 22,
       "traveller": "Durgamba Motors",
       "type": "Non-A/C",
@@ -242,7 +242,7 @@
       "from": "Pune",
       "to": "Goa"
     },
-     {
+    {
       "id": 23,
       "traveller": "Manish Travels",
       "type": "A/C Sleeper",
@@ -252,6 +252,40 @@
       "price": "800",
       "from": "Pune",
       "to": "Goa"
+    }
+  ],
+  "bookings": [
+    {
+      "id": 1748004094714,
+      "traveller": "VRL Travels",
+      "type": "Non-A/C",
+      "ratings": "3.8",
+      "seats": "22",
+      "timing": "21:30 pm - 8:00 am",
+      "price": "670",
+      "email": "sanjan@gmail.com",
+      "mobile": "8765466764",
+      "pickup": "silk board",
+      "drop": "sagar",
+      "seat": "7",
+      "from": "Pune",
+      "to": "Goa"
+    },
+    {
+      "id": 1748005685654,
+      "traveller": "SRS Travels",
+      "type": "A/C (2+1)",
+      "ratings": "4.2",
+      "seats": "5",
+      "timing": "21:30 pm - 8:00 am",
+      "price": "1070",
+      "email": "jimin@bts.com",
+      "mobile": "766006544",
+      "pickup": "domlur",
+      "drop": "honnavar bus stand",
+      "seat": "3",
+      "from": "Bengaluru",
+      "to": "Honnavar"
     }
   ]
 }
